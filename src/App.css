@@ -1,38 +1,199 @@
-.App {
+.calendar-container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.month-header h2 {
+  margin: 0;
+}
+
+.calendar {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.days {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.day {
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.render-calendar {
+  border: 1.5px solid #ccc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calendar-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calendar-day {
+  border: 1.5px solid #ccc;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1;
+}
+
+.calendar-day:hover {
+  background-color: #eee;
+}
+
+.day-number,
+.off-day-number {
+  font-size: 14px;
+  align-self: flex-end;
+}
+
+.off-day-number {
+  color: #999999;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper label {
+  margin-bottom: 7px;
+}
+
+.input-field {
+  width: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: dodgerblue;
+  box-shadow: 0 0 5px dodgerblue;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  background-color: rgb(92, 172, 252);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.event-list {
+  display: grid;
+  flex-wrap: nowrap;
+}
+
+.event-item {
+  padding-left: 2px;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.event-table {
+  width: 500px;
+  border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.event-table th {
+  text-align: left;
+}
+
+.event-actions {
+  display: flex;
+}
+
+.edit-button,
+.delete-button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.edit-button:hover {
+  background-color: #429dff;
+}
+
+.delete-button:hover {
+  background-color: #d85360;
 }
